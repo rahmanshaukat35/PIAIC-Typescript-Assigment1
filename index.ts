@@ -737,12 +737,14 @@ orderSandwich('Chicken', 'Bacon', 'Avocado', 'Mayonnaise');
 
 // example 45
 
+type CarOptions = Array<[string, any]>;
+
 function createCar(
 	manufacturer: string,
 	model: string,
-	...options: Array<[string, any]>
+	...options: CarOptions
 ) {
-	const car = { manufacturer, model };
+	const car: { [key: string]: any } = { manufacturer, model };
 
 	options.forEach(([key, value]) => {
 		car[key] = value;
